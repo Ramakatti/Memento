@@ -1,379 +1,1049 @@
+/* ============================================================
+   RESET
+============================================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* ============================================================
+   BODY
+============================================================ */
+
 body {
-    /* #363532, rgb(88, 111, 112) */
     align-items: center;
     display: flex;
     flex-direction: column;
+
     font-family: 'Work Sans', sans-serif;
+
     min-height: 100vh;
+
     padding-top: 3%;
 }
 
-/* Body light or darker themes */
+
+/* ============================================================
+   THEMES
+============================================================ */
+
 .standard {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
+    background-image:
+        linear-gradient(
+            100deg,
+            #575656,
+            #062e3f
+        );
+
     color: #ffdfdb;
+
     transition: 0.3s linear;
 }
+
 
 .light {
-    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+    background-image:
+        linear-gradient(
+            100deg,
+            #d4f1ff,
+            #ffffff
+        );
+
     color: #1a150e;
+
     transition: 0.3s linear;
 }
+
 
 .darker {
-    background-image: linear-gradient(100deg, #001214, #001f29);
+    background-image:
+        linear-gradient(
+            100deg,
+            #001214,
+            #001f29
+        );
+
     color: white;
+
     transition: 0.3s linear;
 }
 
-#header, #form, #datetime {
-    margin: 0 1rem;
-    min-height: 10vh;
-    width: 100%;
-}
+
+/* ============================================================
+   HEADER
+============================================================ */
 
 #header {
     align-items: center;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    font-size: 3rem;
-    min-height: 25vh;
+
+    justify-content: flex-start;
+
     width: 100%;
+
+    min-height: 25vh;
 }
 
-/* Theme buttons div */
+
+/* ============================================================
+   THEME SELECTORS
+============================================================ */
+
 .flexrow-container {
     align-items: center;
+
     align-self: flex-end;
+
     display: flex;
+
     justify-content: space-around;
+
     margin-right: 3%;
 }
 
+
 .theme-selector {
     border: 1px solid #d1dae3;
+
     border-radius: 100%;
+
     height: 35px;
-    margin: 0 8px;
-    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+
     width: 35px;
+
+    margin: 0 8px;
+
+    transition:
+        transform 150ms ease-in-out,
+        box-shadow 200ms ease-in-out;
 }
 
-.theme-selector:hover { 
+
+.theme-selector:hover {
     box-shadow: white 0 0 8px;
+
     cursor: pointer;
 }
+
 
 .theme-selector:active {
     transform: scale(0.95);
 }
 
+
 .standard-theme {
-    background-image: linear-gradient(100deg, #575656, #062e3f);
+    background-image:
+        linear-gradient(
+            100deg,
+            #575656,
+            #062e3f
+        );
 }
+
 
 .light-theme {
-    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+    background-image:
+        linear-gradient(
+            100deg,
+            #d4f1ff,
+            #ffffff
+        );
 }
+
 
 .darker-theme {
-    background-image: linear-gradient(100deg, #001214, #001f29);
+    background-image:
+        linear-gradient(
+            100deg,
+            #001214,
+            #001f29
+        );
 }
 
-/* Animation */
-#title {
-    border-right: solid 3px rgba(0, 0, 0, 0.75);
-    white-space: pre;
-    overflow: hidden;     
-    letter-spacing: 0.20rem;
-    margin-top: 50px;
+
+/* ============================================================
+   TITLE WRAPPER
+============================================================ */
+
+#title-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 100%;
+
+    margin-top: 35px;
+
     margin-bottom: 20px;
-    max-width: 480px;
-  }
-  
-  /* Animation */
-#title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
-        animated-cursor 750ms steps(11,end) infinite;
-  }
 
-#title.darker-title {
-    animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
+    overflow: visible;
 }
-  
-  /* text animation */
-  
-  @keyframes animated-text{
-    from{width: 0%;}
-    to{width: 480px;}
-  }
-  
-  /* cursor animations */
-  
-  @keyframes animated-cursor{
-    from{border-right-color: rgba(0, 0, 0, 0.75);}
-    to{border-right-color: transparent;}
-  }
 
-  @keyframes darker-animated-cursor {
-    from{border-right-color: #01394c;}
-    to{border-right-color: transparent;}
-  }
+
+/* ============================================================
+   TITLE
+============================================================ */
+
+#title {
+    display: inline-flex;
+
+    align-items: baseline;
+
+    justify-content: center;
+
+    margin: 0;
+
+    padding: 0;
+
+    font-family:
+        'Work Sans',
+        sans-serif;
+
+    font-size: 5.8rem;
+
+    font-weight: 1000;
+
+    line-height: 1;
+
+    letter-spacing: 0.20rem;
+
+    white-space: nowrap;
+
+    min-height: 64px;
+}
+
+
+/* ============================================================
+   TYPING TEXT
+============================================================ */
+
+#title-text {
+    display: inline-block;
+
+    font-family:
+        'Work Sans',
+        sans-serif;
+
+    font-size: inherit;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 0.20rem;
+
+    white-space: nowrap;
+
+    width: auto;
+
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   CURSOR
+============================================================ */
+
+#title-cursor {
+    display: inline-block;
+
+    width: 3px;
+
+    height: 0.95em;
+
+    margin-left: 3px;
+
+    border-left:
+        3px solid
+        rgba(0, 0, 0, 0.75);
+
+    vertical-align: baseline;
+
+    flex-shrink: 0;
+
+    animation:
+        cursorBlink
+        750ms
+        steps(1)
+        infinite;
+}
+
+
+@keyframes cursorBlink {
+
+    0%,
+    49% {
+        border-left-color:
+            rgba(0, 0, 0, 0.75);
+    }
+
+    50%,
+    100% {
+        border-left-color:
+            transparent;
+    }
+}
+
+
+.darker #title-cursor {
+    border-left-color:
+        #01394c;
+}
+
+
+/* ============================================================
+   PROJECT BAR
+============================================================ */
+
+#project-bar {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 100%;
+
+    margin-top: 0;
+
+    margin-bottom: 0;
+}
+
+
+.project-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    width: 90%;
+
+    max-width: 600px;
+}
+
+
+.project-control,
+.task-control {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.project-wrapper label {
+    font-size: 1.2rem;
+
+    opacity: 0.85;
+}
+
+
+/* ============================================================
+   SELECT DROPDOWNS
+============================================================ */
+
+#project-select,
+#task-select {
+    padding: 8px 16px;
+
+    font-size: 15px;
+
+    font-family: inherit;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 200ms ease,
+        color 200ms ease;
+}
+
+
+.standard-select {
+    background-color: #181a1a;
+
+    color: rgb(247, 226, 223);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.1);
+}
+
+
+.light-select {
+    background-color: #ffffff;
+
+    color: #1a150e;
+
+    box-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+.darker-select {
+    background-color: #01394c;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+}
+
+
+/* ============================================================
+   FORM
+============================================================ */
+
+#form {
+    width: 100%;
+
+    min-height: 10vh;
+}
+
 
 form {
     display: flex;
-    font-size: 1.7rem;
+
+    align-items: center;
+
     justify-content: center;
+
+    font-size: 1.7rem;
+
     margin: 15px 0;
+
     padding: 0.8rem;
+
     width: 100%;
 }
+
 
 form input {
     padding: 10px;
+
     font-size: 17px;
+
     border: none;
+
     outline: none;
-    /* border-radius: 15; */
+
     border-top-left-radius: 17px;
+
     border-bottom-left-radius: 17px;
+
     max-width: 500px;
-    transition: background-color 200ms ease-in-out;
+
     width: 100%;
+
+    transition:
+        background-color 200ms ease-in-out;
 }
 
-/* Input themes */
-form input.standard-input {
+
+/* ============================================================
+   INPUT THEMES
+============================================================ */
+
+.standard-input {
     background-color: #181a1a;
+
     color: rgb(247, 226, 223);
 }
 
 
-form input.light-input {
+.light-input {
     background-color: #AEB1B4;
+
     color: #1a150e;
 }
 
-form input.light-input::placeholder {
+
+.light-input::placeholder {
     color: #1a150e;
+
     opacity: 0.7;
 }
 
-form input.darker-input {
+
+.darker-input {
     background-color: #01394c;
+
     color: white;
 }
 
-form input.darker-input::placeholder {
+
+.darker-input::placeholder {
     color: white;
+
     opacity: 0.7;
 }
+
 
 form input:hover {
     cursor: text;
 }
 
-form input.standard-input:hover {
+
+.standard-input:hover {
     background-color: rgb(0, 0, 0);
 }
 
-form input.light-input:hover {
+
+.light-input:hover {
     background-color: #919699;
 }
 
-form input.darker-input:hover {
+
+.darker-input:hover {
     background-color: #013141;
 }
 
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+
 button {
     border: none;
-    outline: none; 
-    transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+
+    outline: none;
+
+    transition:
+        box-shadow 200ms ease,
+        background-color 200ms ease-in-out;
 }
+
 
 button:hover {
     cursor: pointer;
 }
 
-/* Button themes */
-button.standard-button {
-    background-color: rgb(247, 226, 223);
+
+.standard-button {
+    background-color:
+        rgb(247, 226, 223);
+
     color: rgb(0, 0, 0);
 }
 
-button.standard-button:hover {
+
+.standard-button:hover {
     background-color: white;
-    box-shadow: #fff8 0 0 10px;
+
+    box-shadow:
+        #fff8 0 0 10px;
 }
 
-button.light-button {
+
+.light-button {
     background-color: white;
+
     color: #1a150e;
 }
 
-button.light-button:hover {
+
+.light-button:hover {
     background-color: #f0f0f0;
 }
 
-button.darker-button {
+
+.darker-button {
     background-color: #002837;
+
     color: white;
 }
 
-button.darker-button:hover {
+
+.darker-button:hover {
     background-color: #001f29;
 }
 
+
 form button {
     padding: 10px;
+
     font-size: 17px;
+
     border-top-right-radius: 15px;
+
     border-bottom-right-radius: 15px;
+
     min-width: 100px;
 }
 
+
+/* ============================================================
+   TODO LIST CONTAINER
+   FIXED HEIGHT WITH INTERNAL VERTICAL SCROLLBAR
+============================================================ */
+
 #myUnOrdList {
     display: flex;
-    justify-content: center;
+
+    flex-direction: column;
+
     align-items: center;
+
+    width: 100%;
+
     max-width: 1200px;
+
+    height: 420px;
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 10px;
+
+    box-sizing: border-box;
+
+    overscroll-behavior: contain;
+
+    scrollbar-width: thin;
+
+    scrollbar-color: #60758b transparent;
 }
+
+
+/* ============================================================
+   CUSTOM SCROLLBAR - CHROME / EDGE / SAFARI
+============================================================ */
+
+#myUnOrdList::-webkit-scrollbar {
+    width: 8px;
+}
+
+
+#myUnOrdList::-webkit-scrollbar-track {
+    background: transparent;
+
+    border-radius: 10px;
+}
+
+
+#myUnOrdList::-webkit-scrollbar-thumb {
+    background: #60758b;
+
+    border-radius: 10px;
+}
+
+
+#myUnOrdList::-webkit-scrollbar-thumb:hover {
+    background: #8ca4bd;
+}
+
+
+/* ============================================================
+   TODO LIST
+============================================================ */
 
 .todo-list {
     min-width: 25%;
-    overflow: hidden;
-    /* To remove the bullets of unordered list */
+
+    width: 90%;
+
+    max-width: 600px;
+
+    overflow: visible;
+
     list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+    flex-shrink: 0;
 }
+
+
+/* ============================================================
+   TODO ITEM
+============================================================ */
 
 .todo {
-    margin: 1rem;
-    /* background: rgb(247, 226, 223); */
-    /* color: black; */
+    margin: 1rem 0;
+
     font-size: 19px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
+
     padding: 0.25em 0.5em;
+
     border-radius: 30px;
-    transition: background-color 200ms ease-in-out;
+
+    width: 100%;
+
+    flex-shrink: 0;
+
+    transition:
+        background-color 200ms ease-in-out;
 }
 
-/* Items themes */
+
+/* ============================================================
+   TODO THEMES
+============================================================ */
+
 .standard-todo {
-    background-color: rgb(26, 27, 27);
+    background-color:
+        rgb(26, 27, 27);
 }
+
 
 .light-todo {
-    background-color:#AEB1B4;
+    background-color:
+        #AEB1B4;
 }
+
 
 .darker-todo {
-    background-color: #01394c;
+    background-color:
+        #01394c;
 }
 
-.todo li{
+
+/* ============================================================
+   TODO TEXT
+============================================================ */
+
+.todo li {
     padding: 7px;
-    /* word-wrap: break-word; */
-    /* flex-wrap: wrap; */
+
     font-size: 20px;
-    flex: 1; /* To push the trash and the check button to the right */
+
+    flex: 1;
+
     border-radius: 30px;
 
-    /* wraps the links */
     overflow-wrap: anywhere;
+
+    word-break: break-word;
 }
 
-.check-btn, .delete-btn {
-    font-size: 19px;
-    cursor: pointer;
-    width: 2em;
-    height: 2em;
-    border-radius: 80%;
-    margin: 0 5px;
-}
 
 .todo-item {
-    padding: 0rem 0.5rem;
+    padding: 0 0.5rem;
 }
 
-.fa-trash, .fa-check { 
+
+/* ============================================================
+   PROJECT TAG
+============================================================ */
+
+.project-tag {
+    font-size: 12px;
+
+    padding: 3px 10px;
+
+    border-radius: 12px;
+
+    margin-right: 10px;
+
+    letter-spacing: 0.03em;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+.standard .project-tag {
+    background:
+        rgba(247, 226, 223, 0.15);
+
+    color:
+        rgb(247, 226, 223);
+
+    border:
+        1px solid
+        rgba(247, 226, 223, 0.25);
+}
+
+
+.light .project-tag {
+    background: #ffffff;
+
+    color: #1a150e;
+
+    border:
+        1px solid
+        #d1d5db;
+}
+
+
+.darker .project-tag {
+    background:
+        rgba(0, 180, 216, 0.15);
+
+    color: #90e0ef;
+
+    border:
+        1px solid
+        rgba(0, 180, 216, 0.3);
+}
+
+
+/* ============================================================
+   CHECK / DELETE BUTTONS
+============================================================ */
+
+.check-btn,
+.delete-btn {
+    font-size: 19px;
+
+    cursor: pointer;
+
+    width: 2em;
+
+    height: 2em;
+
+    border-radius: 80%;
+
+    margin: 0 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: #000000 !important;
+}
+
+
+.check-btn .fa-check,
+.delete-btn .fa-trash {
+    color: #000000 !important;
+
+    font-size: 19px;
+
+    display: inline-block;
+
     pointer-events: none;
 }
 
 
+.standard .check-btn .fa-check,
+.standard .delete-btn .fa-trash,
+.light .check-btn .fa-check,
+.light .delete-btn .fa-trash,
+.darker .check-btn .fa-check,
+.darker .delete-btn .fa-trash {
+    color: #000000 !important;
+}
+
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   COMPLETED
+============================================================ */
+
 .completed {
     transition: 0.2s;
+
     text-decoration: line-through;
+
     opacity: 0.5;
 }
 
+
+/* ============================================================
+   DELETE ANIMATION
+============================================================ */
+
 .fall {
     transition: 0.5s;
-    transform: translateY(45rem) rotateZ(45deg);
+
+    transform:
+        translateY(45rem)
+        rotateZ(45deg);
+
     opacity: 0;
 }
 
-/* Responsive design */
-@media only screen and (max-width: 1000px) {
-    .flexrow-container {
-        align-self: unset;
-        margin-right: 0;
-    }
+
+/* ============================================================
+   DATE / TIME
+============================================================ */
+
+#datetime {
+    display: block;
+
+    text-align: center;
+
+    margin: 10px 0;
+
+    font-size: 0.95rem;
+
+    opacity: 0.8;
 }
+
+
+/* ============================================================
+   TABLET
+============================================================ */
 
 @media only screen and (max-width: 800px) {
-    #header {
-        font-size: 2rem;
+
+    .flexrow-container {
+        align-self: unset;
+
+        margin-right: 0;
     }
 
+
     #title {
-        animation: 
-            animated-text 3s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
-        margin-bottom: 10px;
-        margin-top: 30px;
-        max-width: 330px;
+        font-size: 3.5rem;
+
+        letter-spacing: 0.15rem;
+    }
+
+
+    .project-wrapper {
+        width: 95%;
     }
 }
 
-@media only screen and (max-width: 400px) {
-    #header {
-        font-size: 1.5rem;
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media only screen and (max-width: 450px) {
+
+    #title-wrapper {
+        margin-top: 20px;
+
+        margin-bottom: 15px;
     }
 
+
     #title {
-        animation: 
-            animated-text 3.5s steps(16,end) 0.5s 1 normal both,
-            animated-cursor 750ms steps(16,end) infinite;
-        max-width: 255px;
+        font-size: 2.8rem;
+
+        letter-spacing: 0.1rem;
+
+        min-height: 45px;
+    }
+
+
+    .project-wrapper {
+        flex-direction: column;
+
+        gap: 8px;
+    }
+
+
+    .project-control,
+    .task-control {
+        width: 100%;
+
+        justify-content: center;
+    }
+
+
+    #project-select,
+    #task-select {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    form {
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+
+    /* Keep the list fixed-height on mobile too */
+
+    #myUnOrdList {
+        height: 420px;
+
+        max-height: 420px;
+
+        padding: 8px;
+    }
+
+
+    .todo-list {
+        width: 100%;
+
+        min-width: 0;
     }
 }
 
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
 @media only screen and (max-width: 400px) {
+
+    #title {
+        font-size: 2.5rem;
+
+        letter-spacing: 0.08rem;
+    }
+
+
     form {
         align-items: center;
+
         flex-direction: column;
     }
+
 
     form input {
         border-radius: 17px;
     }
 
+
     form button {
         border-radius: 15px;
+
         margin-top: 15px;
+
         width: 50%;
     }
+
+
     form > button.light-button {
-        box-shadow: 0 0 5px lightgray;
+        box-shadow:
+            0 0 5px lightgray;
     }
 }
