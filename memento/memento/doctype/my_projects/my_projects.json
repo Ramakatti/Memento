@@ -1,0 +1,152 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PRJ-{#}-{DD}-{MM}-{YY}",
+ "creation": "2026-09-25 11:00:51.653252",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "project_name",
+  "column_break_wqin",
+  "start_date",
+  "classification",
+  "end_date",
+  "category",
+  "column_break_awse",
+  "priority_level",
+  "status",
+  "monograph_section",
+  "about",
+  "description",
+  "user"
+ ],
+ "fields": [
+  {
+   "fieldname": "project_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Project Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nIn Progress\nCompleted\nPostponed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wqin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Work\nPersonal\nLearning\nProject\nMeeting",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "End date"
+  },
+  {
+   "fieldname": "priority_level",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority Level",
+   "options": "High\nMedium\nLow",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User"
+  },
+  {
+   "fieldname": "column_break_awse",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "classification",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "fieldname": "monograph_section",
+   "fieldtype": "Section Break",
+   "label": "Monograph"
+  },
+  {
+   "fieldname": "about",
+   "fieldtype": "Small Text",
+   "label": "About"
+  }
+ ],
+ "icon": "fa branch",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-10-06 00:35:19.349438",
+ "modified_by": "Administrator",
+ "module": "Memento",
+ "name": "My Projects",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Light Blue",
+   "title": "In Progress"
+  },
+  {
+   "color": "Green",
+   "title": "Completed"
+  },
+  {
+   "color": "Yellow",
+   "title": "Postponed"
+  },
+  {
+   "color": "Orange",
+   "title": "Pending"
+  }
+ ],
+ "title_field": "project_name"
+}

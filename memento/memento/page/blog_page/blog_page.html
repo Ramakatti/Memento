@@ -1,0 +1,577 @@
+<div class="memento-blog">
+
+    <!-- =========================================
+         ACTION BUTTONS
+    ========================================== -->
+
+    <div class="blog-actions">
+
+        <button
+            class="blog-close-btn"
+            type="button"
+        >
+            Close
+        </button>
+
+        <button
+            class="blog-delete-btn"
+            type="button"
+        >
+            Delete
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         PROJECT TITLE
+    ========================================== -->
+
+    <h1 class="blog-title">
+        ${project.project_name || "Untitled Project"}
+    </h1>
+
+
+    <!-- =========================================
+         AUTHOR
+    ========================================== -->
+
+    <div class="blog-author">
+
+        <div class="author-avatar">
+
+            ${
+                project.user
+                    ? project.user.charAt(0).toUpperCase()
+                    : "U"
+            }
+
+        </div>
+
+
+        <div class="author-info">
+
+            <div class="author-name">
+                ${project.user || "Anonymous User"}
+            </div>
+
+
+            <div class="author-meta">
+
+                ${
+                    project.creation
+                        ? frappe.datetime.str_to_user(
+                              project.creation
+                          )
+                        : "Date not available"
+                }
+
+                · 4 min read
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         PROJECT META
+    ========================================== -->
+
+    <div class="project-meta">
+
+
+        <div class="meta-item">
+
+            <span class="meta-label">
+                Category
+            </span>
+
+            <span class="meta-value">
+                ${project.category || "Not specified"}
+            </span>
+
+        </div>
+
+
+        <div class="meta-item">
+
+            <span class="meta-label">
+                Status
+            </span>
+
+            <span class="meta-value">
+                ${project.status || "Not specified"}
+            </span>
+
+        </div>
+
+
+        <div class="meta-item">
+
+            <span class="meta-label">
+                Priority
+            </span>
+
+            <span class="meta-value">
+                ${project.priority_level || "Not specified"}
+            </span>
+
+        </div>
+
+
+        <div class="meta-item">
+
+            <span class="meta-label">
+                User
+            </span>
+
+            <span class="meta-value">
+                ${project.user || "Not specified"}
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         PROJECT DETAILS
+    ========================================== -->
+
+    <h2>
+        Project Details
+    </h2>
+
+
+    <div class="project-details">
+
+
+        <div class="detail-row">
+
+            <strong>
+                Project ID
+            </strong>
+
+            <span>
+                ${project.name || "-"}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <strong>
+                Start Date
+            </strong>
+
+            <span>
+                ${project.start_date || "-"}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <strong>
+                End Date
+            </strong>
+
+            <span>
+                ${project.end_date || "-"}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <strong>
+                Category
+            </strong>
+
+            <span>
+                ${project.category || "-"}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <strong>
+                Priority
+            </strong>
+
+            <span>
+                ${project.priority_level || "-"}
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <strong>
+                Status
+            </strong>
+
+            <span>
+                ${project.status || "-"}
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================================
+         PROJECT DESCRIPTION
+    ========================================== -->
+
+    <h2>
+        Project Description
+    </h2>
+
+
+    <div class="project-description">
+
+        ${
+            project.description ||
+            "<p>No project description has been added yet.</p>"
+        }
+
+    </div>
+
+
+    <!-- =========================================
+         ABOUT PROJECT
+    ========================================== -->
+
+    <h2>
+        About This Project
+    </h2>
+
+
+    <p>
+
+        This project is documented using the
+        <strong>Memento</strong> module to keep important
+        project information organized and easy to understand.
+
+    </p>
+
+
+    <p>
+
+        The project belongs to
+
+        <strong>
+            ${project.category || "Project"}
+        </strong>
+
+        category and currently has a status of
+
+        <strong>
+            ${project.status || "Not specified"}
+        </strong>.
+
+    </p>
+
+
+    <!-- =========================================
+         PYTHON EXAMPLE
+    ========================================== -->
+
+    <h2>
+        Frappe Python Example
+    </h2>
+
+
+    <p>
+
+        The following example demonstrates how a Frappe
+        backend method can retrieve project information
+        from a DocType.
+
+    </p>
+
+
+    <div class="code-card">
+
+
+        <div class="code-header">
+
+            <span class="code-language">
+                Python
+            </span>
+
+
+            <button
+                class="copy-code"
+                type="button"
+            >
+                Copy
+            </button>
+
+        </div>
+
+
+        <pre><code><span class="code-keyword">import</span> frappe
+
+<span class="code-decorator">@frappe.whitelist()</span>
+<span class="code-keyword">def</span> <span class="code-function">get_project_details</span>(project_id):
+
+    <span class="code-keyword">if</span> <span class="code-keyword">not</span> project_id:
+
+        <span class="code-keyword">return</span> {
+
+            <span class="code-string">"success"</span>:
+                <span class="code-keyword">False</span>,
+
+            <span class="code-string">"message"</span>:
+                <span class="code-string">"Project ID is required"</span>
+
+        }
+
+
+    project = frappe.<span class="code-function">get_doc</span>(
+
+        <span class="code-string">"My Projects"</span>,
+
+        project_id
+
+    )
+
+
+    <span class="code-keyword">return</span> {
+
+        <span class="code-string">"name"</span>:
+            project.name,
+
+        <span class="code-string">"project_name"</span>:
+            project.project_name,
+
+        <span class="code-string">"status"</span>:
+            project.status,
+
+        <span class="code-string">"category"</span>:
+            project.category,
+
+        <span class="code-string">"priority"</span>:
+            project.priority_level
+
+    }</code></pre>
+
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT EXAMPLE
+    ========================================== -->
+
+    <h2>
+        Frappe JavaScript Example
+    </h2>
+
+
+    <p>
+
+        Frappe JavaScript can be used to retrieve DocType
+        records and display information on the client side.
+
+    </p>
+
+
+    <div class="code-card">
+
+
+        <div class="code-header">
+
+            <span class="code-language">
+                JavaScript
+            </span>
+
+
+            <button
+                class="copy-code"
+                type="button"
+            >
+                Copy
+            </button>
+
+        </div>
+
+
+        <pre><code><span class="code-keyword">function</span> <span class="code-function">loadProject</span>(projectId) {
+
+    <span class="code-keyword">if</span> (!projectId) {
+
+        console.<span class="code-function">error</span>(
+            <span class="code-string">"Project ID is missing"</span>
+        );
+
+        <span class="code-keyword">return</span>;
+    }
+
+
+    frappe.db.<span class="code-function">get_doc</span>(
+
+        <span class="code-string">"My Projects"</span>,
+
+        projectId
+
+    ).<span class="code-function">then</span>(<span class="code-keyword">function</span>(project) {
+
+        console.<span class="code-function">log</span>(
+            <span class="code-string">"Project:"</span>,
+            project
+        );
+
+
+        console.<span class="code-function">log</span>(
+            <span class="code-string">"Name:"</span>,
+            project.project_name
+        );
+
+
+        console.<span class="code-function">log</span>(
+            <span class="code-string">"Status:"</span>,
+            project.status
+        );
+
+
+        console.<span class="code-function">log</span>(
+            <span class="code-string">"Category:"</span>,
+            project.category
+        );
+
+
+    }).<span class="code-function">catch</span>(
+        <span class="code-keyword">function</span>(error) {
+
+            console.<span class="code-function">error</span>(
+
+                <span class="code-string">
+                    "Failed to load project:"
+                </span>,
+
+                error
+
+            );
+
+        }
+    );
+
+}</code></pre>
+
+
+    </div>
+
+
+    <!-- =========================================
+         DOCTYPES
+    ========================================== -->
+
+    <h2>
+        Working With DocTypes
+    </h2>
+
+
+    <p>
+
+        Frappe DocTypes provide a structured way to store and
+        manage application data.
+
+        In this project, the
+        <strong>My Projects</strong>
+        DocType stores the project information displayed
+        on this page.
+
+    </p>
+
+
+    <ul>
+
+        <li>
+            Project information can be stored in a DocType.
+        </li>
+
+        <li>
+            Fields define the structure of the data.
+        </li>
+
+        <li>
+            Python can handle server-side operations.
+        </li>
+
+        <li>
+            JavaScript can control client-side behaviour.
+        </li>
+
+        <li>
+            Frappe APIs can connect the frontend and backend.
+        </li>
+
+    </ul>
+
+
+    <!-- =========================================
+         QUOTE
+    ========================================== -->
+
+    <blockquote class="blog-quote">
+
+        <strong>
+
+            Plan the project.
+            Document the work.
+            Build the solution.
+
+        </strong>
+
+    </blockquote>
+
+
+    <!-- =========================================
+         CONCLUSION
+    ========================================== -->
+
+    <h2>
+        Conclusion
+    </h2>
+
+
+    <p>
+
+        This project page demonstrates how project information
+        can be presented using a clean Memento blog layout.
+
+        Project details, descriptions, DocType information,
+        and development examples are organized in one place.
+
+    </p>
+
+
+    <h3>
+        Memento Project Blog
+    </h3>
+
+
+    <p>
+
+        This page is part of the
+        <strong>Memento</strong> module and is used to document
+        project information and progress.
+
+    </p>
+
+
+</div>
+

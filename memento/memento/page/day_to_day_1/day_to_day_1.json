@@ -1,19 +1,19 @@
 {
  "content": null,
- "creation": "2026-07-06 23:11:54.382752",
+ "creation": "2026-09-22 23:49:02.443635",
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2026-07-06 23:12:05.652199",
+ "modified": "2026-09-22 23:49:02.443635",
  "modified_by": "Administrator",
  "module": "Memento",
- "name": "project-hub",
+ "name": "day-to-day-1",
  "owner": "Administrator",
- "page_name": "project-hub",
+ "page_name": "day-to-day-1",
  "roles": [],
  "script": null,
  "standard": "Yes",
  "style": null,
  "system_page": 0,
- "title": "Project Hub"
+ "title": "Day To Day"
 }

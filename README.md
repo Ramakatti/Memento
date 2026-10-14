@@ -1,5 +1,8 @@
 ### Memento
 
+You really Need a system if your going to make it work. Making notes becomes important part of your life
+If you have peice of vital information instead of writing on peice of paper wellcome here
+
 Memento is a productivity and knowledge management platform that brings together tasks, notes, and work journals in one place. Plan your work, document your progress, and build a lasting record of your ideas, achievements, and learning.
 
 ### Installation

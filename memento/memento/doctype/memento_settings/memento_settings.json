@@ -8,7 +8,9 @@
   "todo_themes_section",
   "standerd",
   "light",
-  "darker"
+  "darker",
+  "templates_section",
+  "monthly_sheet"
  ],
  "fields": [
   {
@@ -33,13 +35,23 @@
    "fieldname": "darker",
    "fieldtype": "Check",
    "label": "Darker"
+  },
+  {
+   "fieldname": "templates_section",
+   "fieldtype": "Section Break",
+   "label": "Templates"
+  },
+  {
+   "fieldname": "monthly_sheet",
+   "fieldtype": "Attach",
+   "label": "Monthly Sheet"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2026-07-21 00:33:49.463321",
+ "modified": "2026-10-01 19:56:05.658868",
  "modified_by": "Administrator",
  "module": "Memento",
  "name": "Memento Settings",
