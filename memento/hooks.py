@@ -243,6 +243,12 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-# fixtures = ["Projects"]
 
-
+fixtures = [
+    {
+        "dt": "DocType",
+        "filters": [
+            ["name", "in", ["Tasks", "To Do Task"]]
+        ]
+    }
+]
